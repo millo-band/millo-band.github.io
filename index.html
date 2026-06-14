@@ -9,59 +9,24 @@
             /* Black background */
             background-color: #000000; 
             
-            /* Baker Miller Pink text */
-            color: #FF91AF; 
-            
-            /* Center the artwork on the screen */
+            /* Center the logo on the screen */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden; /* Prevents scrollbars from appearing */
         }
 
-        .ascii-art {
-            white-space: pre; 
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            /* clamp() ensures the art scales dynamically with the screen size */
-            font-size: clamp(4px, 1.1vw, 24px); 
-            line-height: 1.1;
+        .logo {
+            max-width: 250px;
+            width: 100%; /* Ensures it scales down gracefully on very small screens */
+            height: auto;
         }
     </style>
 </head>
 <body>
 
-    <div class="ascii-art">
-                                             .A.
-                                           .d%%%b.
-                                         .d%%%%%%%b.
-                                       .d%%%%%%%%%%%b.
-=====================================.d%%%%%%%%%%%%%%%b.=====================================
-|                                    'q%%%%%%%%%%%%%%%p'                                    |
-|                                      'q%%%%%%%%%%%p'                                      |
-|                                        'q%%%%%%%p'                                        |
-|                                          'q%%%p'                                          |
-|                                            'V'                                            |
-|                                                                                           |
-|                                    _      ____     ____                                   |
-|                                   dQQb   |QQQQ|   |QQQQ|                                  |
-|      _aQQQQa_    _aQQQQa_         """"   |QQQQ|   |QQQQ|                                  |
-|    _dQQQQQQQQb__dQQQQQQQQb_       __     |QQQQ|   |QQQQ|         _aQQQQQQa_               |
-|   |QQQQP""YQQQQQQQP""YQQQQQ|     |QQ|    |QQQQ|   |QQQQ|       _dQQQQQQQQQQb_             |
-|   |QQQQ    QQQQQQQ    QQQQQ|     |QQ|    |QQQQ|   |QQQQ|      |QQQQP""""YQQQQ|            |
-|   |QQQQ    QQQQQQQ    QQQQQ|     |QQ|    |QQQQ|   |QQQQ|      |QQQQ      QQQQ|            |
-|   |QQQQ    QQQQQQQ    QQQQQ|     |QQ|    |QQQQ|   |QQQQ|      |QQQQ      QQQQ|            |
-|   |QQQQ    QQQQQQQ    QQQQQ|     |QQ|    |QQQQ|   |QQQQ|      |QQQQ      QQQQ|            |
-|   |QQQQ    QQQQQQQ    QQQQQ|     |QQ|    |QQQQ|   |QQQQ|      |QQQQ.    .QQQQ|            |
-|   |QQQQ    QQQQQQQ    QQQQQ|     |QQ|    |QQQQ|   |QQQQ|       YQQQQQQQQQQQQP             |
-|  _dQQQQb_ _dQQQQQQb_ _dQQQQb_   _dQQb_  _dQQQQb_ _dQQQQb_       "YQQQQQQQQP"              |
-|  |______| |________| |______|   |____|  |______| |______|          """"""                 |
-|                                                                                           |
-|                                                                                           |
-=============================================================================================
-    </div>
+    <img src="Millo - Logo Hat.svg" alt="Millo Band Logo" class="logo">
 
 </body>
 </html>
