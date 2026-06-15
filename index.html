@@ -3,21 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Millo Band</title>[cite: 1]
+    <title>Millo Band</title>
 
-    <!-- Favicon Links -->
     <link rel="icon" type="image/svg+xml" href="Millo - Logo Hat.svg">
     <link rel="apple-touch-icon" href="Millo - Logo Hat.svg">
 
-    <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://milloband.com/millo-website/">
     <meta property="og:title" content="Millo Band">
     <meta property="og:description" content="Click to enter the official Millo Band website.">
-    <!-- NOTE: Social platforms prefer absolute URLs for images. If the preview doesn't load, change the line below to: content="https://milloband.com/millo-website/Millo - Logo Hat.svg" -->
     <meta property="og:image" content="Millo - Logo Hat.svg">
 
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://milloband.com/millo-website/">
     <meta name="twitter:title" content="Millo Band">
@@ -25,56 +21,79 @@
     <meta name="twitter:image" content="Millo - Logo Hat.svg">
 
     <style>
-        body {
-            /* Black background */
-            background-color: #000000;[cite: 1]
-            
-            /* Center the logo on the screen */
-            display: flex;[cite: 1]
-            justify-content: center;[cite: 1]
-            align-items: center;[cite: 1]
-            height: 100vh;[cite: 1]
-            margin: 0;[cite: 1]
+        /* Ensure the entire page takes up exactly 100% of the viewport */
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #000000;
         }
 
-        /* Container for the link to ensure the click area matches the logo */
+        /* Flexbox handles the dead-center alignment */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevents accidental scrollbars */
+        }
+
+        /* Wrapper for the logo and scanlines */
         .logo-link {
+            position: relative;
             display: inline-block;
             max-width: 250px;
             width: 100%;
         }
 
         .logo {
-            width: 100%;[cite: 1]
-            height: auto;[cite: 1]
-            transition: filter 0.2s ease;
+            display: block; /* Removes weird spacing under images */
+            width: 100%;
+            height: auto;
+            transition: filter 0.3s ease;
         }
 
-        /* Hover effect: Apply Baker Miller Pink color and trigger glitch animation */
+        /* The Scanline Overlay Setup */
+        .logo-link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Creates the alternating dark/transparent lines */
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 0px,
+                rgba(0, 0, 0, 0) 2px,
+                rgba(0, 0, 0, 0.5) 2px,
+                rgba(0, 0, 0, 0.5) 4px
+            );
+            opacity: 0;
+            pointer-events: none; /* Allows the user to click through the scanlines */
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hover Effect: Pink color with a slight terminal glow */
         .logo-link:hover .logo {
-            /* This filter chain calculates exactly to #FF91AF (Baker Miller Pink) */
-            filter: brightness(0) saturate(100%) invert(70%) sepia(34%) saturate(762%) hue-rotate(302deg) brightness(105%) contrast(103%);
-            
-            /* Trigger the fast, infinite glitch animation */
-            animation: glitch 0.2s infinite linear alternate-reverse;
+            filter: brightness(0) saturate(100%) invert(70%) sepia(34%) saturate(762%) hue-rotate(302deg) brightness(105%) contrast(103%) drop-shadow(0 0 8px rgba(255, 145, 175, 0.4));
         }
 
-        /* Glitch Animation Keyframes */
-        @keyframes glitch {
-            0% { transform: translate(0, 0) skew(0deg); }
-            20% { transform: translate(-4px, 2px) skew(-5deg); }
-            40% { transform: translate(4px, -2px) skew(5deg); }
-            60% { transform: translate(-2px, 4px) skew(-2deg); }
-            80% { transform: translate(2px, -4px) skew(2deg); }
-            100% { transform: translate(0, 0) skew(0deg); }
+        /* Hover Effect: Reveal and animate the scanlines */
+        .logo-link:hover::after {
+            opacity: 1;
+            animation: scanlines 1s linear infinite;
+        }
+
+        /* Slowly pans the scanlines downward */
+        @keyframes scanlines {
+            from { background-position: 0 0; }
+            to { background-position: 0 4px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Wrapped the logo in a clickable anchor tag -->
     <a href="https://milloband.com/millo-website/" class="logo-link">
-        <img src="Millo - Logo Hat.svg" alt="Millo Band Logo" class="logo">[cite: 1]
+        <img src="Millo - Logo Hat.svg" alt="Millo Band Logo" class="logo">
     </a>
 
 </body>
