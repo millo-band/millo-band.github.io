@@ -7,26 +7,56 @@
     <style>
         body {
             /* Black background */
-            background-color: #000000; 
+            background-color: #000000;[cite: 1]
             
             /* Center the logo on the screen */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            display: flex;[cite: 1]
+            justify-content: center;[cite: 1]
+            align-items: center;[cite: 1]
+            height: 100vh;[cite: 1]
+            margin: 0;[cite: 1]
+        }
+
+        /* Container for the link to ensure the click area matches the logo */
+        .logo-link {
+            display: inline-block;
+            max-width: 250px;
+            width: 100%;
         }
 
         .logo {
-            max-width: 250px;
-            width: 100%; /* Ensures it scales down gracefully on very small screens */
-            height: auto;
+            width: 100%;[cite: 1]
+            height: auto;[cite: 1]
+            transition: filter 0.2s ease;
+        }
+
+        /* Hover effect: Apply Baker Miller Pink color and trigger glitch animation */
+        .logo-link:hover .logo {
+            /* This filter chain calculates exactly to #FF91AF (Baker Miller Pink) 
+               regardless of whether your original SVG is black or white */
+            filter: brightness(0) saturate(100%) invert(70%) sepia(34%) saturate(762%) hue-rotate(302deg) brightness(105%) contrast(103%);
+            
+            /* Trigger the fast, infinite glitch animation */
+            animation: glitch 0.2s infinite linear alternate-reverse;
+        }
+
+        /* Glitch Animation Keyframes */
+        @keyframes glitch {
+            0% { transform: translate(0, 0) skew(0deg); }
+            20% { transform: translate(-4px, 2px) skew(-5deg); }
+            40% { transform: translate(4px, -2px) skew(5deg); }
+            60% { transform: translate(-2px, 4px) skew(-2deg); }
+            80% { transform: translate(2px, -4px) skew(2deg); }
+            100% { transform: translate(0, 0) skew(0deg); }
         }
     </style>
 </head>
 <body>
 
-    <img src="Millo - Logo Hat.svg" alt="Millo Band Logo" class="logo">
+    <!-- Wrapped the logo in a clickable anchor tag -->
+    <a href="https://milloband.com/millo-website/" class="logo-link">
+        <img src="Millo - Logo Hat.svg" alt="Millo Band Logo" class="logo">[cite: 1]
+    </a>
 
 </body>
 </html>
